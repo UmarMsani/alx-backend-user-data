@@ -19,10 +19,9 @@ def hash_password(password: str) -> bytes:
     Exceptions:
         Raises TypeError if the pwd is not of type str
     """
-    encoded = password.encode()
-    hashed = bcrypt.hashpw(encoded, bcrypt.gensalt())
-
-    return hashed
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password
 
 
 def is_valid(stored_pwd: bytes, input_pwd: str) -> bool:
@@ -34,8 +33,4 @@ def is_valid(stored_pwd: bytes, input_pwd: str) -> bool:
     Returns:
         return a bool
     """
-    valid = False
-    encoded = password.encode()
-    if bcrypt.checkpw(encoded, hashed_password):
-        valid = True
-    return valid
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
