@@ -12,7 +12,7 @@ def auth_session():
     """
     Authenticate user login credentials.
     Return:
-        A dictionary representing the user if found, otherwise an error message.
+        Dictionary representing the user if found, otherwise an error message.
     """
     email = request.form.get('email')
     password = request.form.get('password')
