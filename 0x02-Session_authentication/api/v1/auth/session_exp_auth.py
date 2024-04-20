@@ -26,7 +26,7 @@ class SessionExpAuth(SessionAuth):
     def create_session(self, user_id=None):
         """
         Creation session with expiration
-        
+
         Return:
             Session ID.
         """
