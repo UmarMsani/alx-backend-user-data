@@ -49,7 +49,7 @@ class Auth:
     def __init__(self):
         self._db = DB()
 
-    def register_user(self, email: str, password: str) ->  User:
+    def register_user(self, email: str, password: str) -> User:
         """Registers a new user with the given email and password.
         """
         try:
